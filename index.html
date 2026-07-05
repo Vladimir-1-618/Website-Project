@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Makes the app scale nicely on phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ДумиДуми — учим английски</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HOME SCREEN: pick a category ===== -->
+  <section id="home-screen" class="screen">
+    <header class="app-header">
+      <h1 class="app-title">ДумиДуми <span class="wave">✨</span></h1>
+      <p class="app-subtitle">Избери тема и учи английски!</p>
+    </header>
+
+    <!-- The category buttons are added here by script.js -->
+    <div id="category-list" class="category-list"></div>
+  </section>
+
+  <!-- ===== FLASHCARD SCREEN: study the words ===== -->
+  <section id="card-screen" class="screen hidden">
+    <div class="card-topbar">
+      <button id="back-btn" class="pill-btn" type="button">⬅ Теми</button>
+      <span id="known-badge" class="badge" title="Научени думи">⭐ 0 / 10</span>
+      <button id="shuffle-btn" class="pill-btn" type="button">🔀 Разбъркай</button>
+    </div>
+
+    <span id="progress" class="progress">1 / 10</span>
+
+    <!-- The flip card. Clicking the card speaks the word; the Flip button turns it over. -->
+    <div class="card-stage">
+      <div id="flashcard" class="flashcard" role="button" tabindex="0" aria-label="Натисни, за да чуеш думата">
+        <div class="card-face card-front">
+          <div class="card-emoji" id="front-emoji">🐶</div>
+          <div class="card-word" id="front-word">куче</div>
+          <div class="card-hint" id="front-hint">Натисни, за да чуеш 🔊</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-emoji" id="back-emoji">🐶</div>
+          <div class="card-word" id="back-word">dog</div>
+          <button id="speak-en-btn" class="speak-btn" type="button">🔊 Чуй на английски</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flip button (only shown once the front has been tapped) -->
+    <button id="flip-btn" class="flip-btn hidden" type="button">🔄 Обърни картата</button>
+
+    <!-- Mark this word as learned (saved in the browser) -->
+    <button id="know-btn" class="know-btn" type="button">✅ Знам тази дума</button>
+
+    <!-- Move between cards -->
+    <div class="nav-row">
+      <button id="prev-btn" class="pill-btn" type="button">⬅ Назад</button>
+      <button id="next-btn" class="pill-btn primary" type="button">Напред ➡</button>
+    </div>
+
+    <!-- Start a quiz for this category -->
+    <button id="quiz-start-btn" class="quiz-start-btn" type="button">🎯 Тест за тази тема</button>
+  </section>
+
+  <!-- ===== QUIZ SCREEN: pick the right English word ===== -->
+  <section id="quiz-screen" class="screen hidden">
+    <div class="card-topbar">
+      <button id="quiz-back-btn" class="pill-btn" type="button">⬅ Теми</button>
+      <span id="quiz-progress" class="progress">1 / 10</span>
+      <span id="quiz-score" class="badge">⭐ 0</span>
+    </div>
+
+    <div class="quiz-prompt">
+      <div class="card-emoji" id="quiz-emoji">🐶</div>
+      <div class="card-word" id="quiz-word">куче</div>
+      <p class="quiz-question">Кое е това на английски?</p>
+    </div>
+
+    <!-- Answer buttons are added here by script.js -->
+    <div id="quiz-options" class="quiz-options"></div>
+
+    <p id="quiz-feedback" class="quiz-feedback"></p>
+  </section>
+
+  <!-- ===== RESULT SCREEN: shown after the quiz ===== -->
+  <section id="result-screen" class="screen hidden">
+    <div class="result-box">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <h2 id="result-title">Браво!</h2>
+      <p id="result-text" class="result-text">Верни отговори: 0 / 10</p>
+      <div class="nav-row">
+        <button id="retry-quiz-btn" class="pill-btn primary" type="button">🔁 Още веднъж</button>
+        <button id="result-home-btn" class="pill-btn" type="button">🏠 Теми</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
